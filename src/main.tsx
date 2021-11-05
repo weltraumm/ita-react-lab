@@ -15,6 +15,7 @@ import ReactDom from "react-dom";
 // import { Switch } from "react-router";
 
 import { Header } from "./components/header/Header";
+import { Footer } from "./components/footer/Footer";
 // import { HomePage } from "./components/pages/Home";
 // import { ProductsPage } from "./components/pages/Products";
 // import { AboutPage } from "./components/pages/About";
@@ -46,6 +47,8 @@ class AppContainer extends Component<AppProps, AppState> {
       <StrictMode>
         {/* <BrowserRouter> */}
         <Header />
+        <p>hi</p>
+        <Footer />
         {/* <Route path="/">
             <HomePage />
           </Route>
