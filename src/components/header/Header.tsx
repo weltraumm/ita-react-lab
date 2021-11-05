@@ -4,7 +4,7 @@ import "./header.scss";
 
 export const Header: React.FC = () => {
   return (
-    <header className="header">
+    <header>
       <span className="title">Game Shop</span>
       <Navbar />
     </header>

@@ -3,7 +3,7 @@ import React from "react";
 
 export const Navbar: React.FC = () => {
   return (
-    <nav className="navbar">
+    <nav>
       <ul>
         <li>
           <a href="/">Home</a>
