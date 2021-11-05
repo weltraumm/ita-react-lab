@@ -1,12 +1,9 @@
-import React from "react";
 import { Navbar } from "./navbar";
 import "./header.scss";
 
-export const Header: React.FC = () => {
-  return (
-    <header>
-      <span className="title">Game Shop</span>
-      <Navbar />
-    </header>
-  );
-};
+export const Header: React.FC = () => (
+  <header>
+    <span className="title">Game Shop</span>
+    <Navbar />
+  </header>
+);

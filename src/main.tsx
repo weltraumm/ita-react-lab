@@ -1,9 +1,3 @@
-// watch: native intellisense and file-peek for aliases from jsconfig.json and with none-js files doesn't work: https://github.com/microsoft/TypeScript/issues/29334
-//import imgSmall from "images/testSmall.png"; // start-path is 'images' because we have an alias 'images' in webpack.common.js
-//import imgCamera from "images/camera.svg";
-//import style from "./styles/main.module.css";
-
-// import React from "react";
 import { Component, StrictMode } from "react";
 import someTypeScript from "./someTypeScript";
 
@@ -34,7 +28,6 @@ class AppContainer extends Component<AppProps, AppState> {
     this.state = {
       title: someTypeScript("Test-block for css-modules"),
     };
-    // test class-dead-code
     const goExlcude = true;
     if (!goExlcude) {
       console.warn("class-dead-code doesn't work");

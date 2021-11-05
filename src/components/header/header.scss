@@ -24,7 +24,6 @@ header {
       justify-content: space-between;
 
       li {
-        // display: inline-block;
         height: 100%;
         a {
           display: inline-block;
@@ -32,7 +31,6 @@ header {
           text-decoration: none;
           color: white;
           padding: 20px;
-          // margin-right: 100px;
           &:hover::after {
             content: "";
             display: block;
