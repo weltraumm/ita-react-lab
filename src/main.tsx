@@ -13,11 +13,11 @@ import "./styles/main.scss";
 import ReactDom from "react-dom";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
-import { Header } from "./components/header/Header";
-import { Footer } from "./components/footer/Footer";
-import { HomePage } from "./components/pages/home/Home";
-import { ProductsPage } from "./components/pages/products/Products";
-import { AboutPage } from "./components/pages/about/About";
+import { Header } from "./components/header/header";
+import { Footer } from "./components/footer/footer";
+import { HomePage } from "./components/pages/home/home";
+import { ProductsPage } from "./components/pages/products/products";
+import { AboutPage } from "./components/pages/about/about";
 
 interface AppProps {
   nothing: boolean;
@@ -47,9 +47,10 @@ class AppContainer extends Component<AppProps, AppState> {
         <BrowserRouter>
           <Header />
           <Switch>
-            <Route component={HomePage} path="/" exact />
+            <Route component={HomePage} path="/home" />
             <Route component={ProductsPage} path="/products" />
             <Route component={AboutPage} path="/about" />
+            <Route strict path="/:id" component={HomePage} />
           </Switch>
         </BrowserRouter>
         <Footer />
@@ -59,20 +60,3 @@ class AppContainer extends Component<AppProps, AppState> {
 }
 
 ReactDom.render(<AppContainer nothing={false} />, document.getElementById("app"));
-
-// const AppComponent: React.FC = () => {
-//   return (
-//     <StrictMode>
-//       <BrowserRouter>
-//         <Header />
-//         <Switch>
-//           <Route component={HomePage} path="/" exact />
-//           <Route component={ProductsPage} path="/products" />
-//           <Route component={AboutPage} path="/about" />
-//         </Switch>
-//       </BrowserRouter>
-//     </StrictMode>
-//   );
-// }
-
-// ReactDom.render(<AppComponent nothing={false} />, document.getElementById("app"));
