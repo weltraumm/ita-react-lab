@@ -1,4 +1,5 @@
 import React from "react";
+import "../pages.scss";
 
 export const AboutPage: React.FC = () => {
   return (

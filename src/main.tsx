@@ -11,14 +11,13 @@ import "./styles/main.css";
 import "./styles/main.scss";
 
 import ReactDom from "react-dom";
-// import { BrowserRouter, Route } from "react-router-dom";
-// import { Switch } from "react-router";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 import { Header } from "./components/header/Header";
 import { Footer } from "./components/footer/Footer";
-// import { HomePage } from "./components/pages/Home";
-// import { ProductsPage } from "./components/pages/Products";
-// import { AboutPage } from "./components/pages/About";
+import { HomePage } from "./components/pages/home/Home";
+import { ProductsPage } from "./components/pages/products/Products";
+import { AboutPage } from "./components/pages/about/About";
 
 interface AppProps {
   nothing: boolean;
@@ -45,25 +44,15 @@ class AppContainer extends Component<AppProps, AppState> {
   render() {
     return (
       <StrictMode>
-        {/* <BrowserRouter> */}
-        <Header />
-        <p>hi</p>
-        <Footer />
-        {/* <Route path="/">
-            <HomePage />
-          </Route>
-          <Route path="/products">
-            <ProductsPage />
-          </Route>
-          <Route path="/about">
-            <AboutPage />
-          </Route> */}
-        {/* <Switch>
+        <BrowserRouter>
+          <Header />
+          <Switch>
             <Route component={HomePage} path="/" exact />
             <Route component={ProductsPage} path="/products" />
             <Route component={AboutPage} path="/about" />
-          </Switch> */}
-        {/* </BrowserRouter> */}
+          </Switch>
+        </BrowserRouter>
+        <Footer />
       </StrictMode>
     );
   }
