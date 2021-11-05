@@ -33,12 +33,21 @@ header {
           color: white;
           padding: 20px;
           // margin-right: 100px;
+          &:hover::after {
+            content: "";
+            display: block;
+            height: 3px;
+            background: rgb(182, 0, 106);
+          }
         }
-        &:hover::after {
-          content: "";
-          display: block;
-          height: 3px;
-          background: rgb(182, 0, 106);
+
+        .selected {
+          &::after {
+            content: "";
+            display: block;
+            height: 3px;
+            background: rgb(182, 0, 106);
+          }
         }
       }
     }

@@ -21,6 +21,16 @@ footer {
     width: 40%;
     margin-right: 7%;
   }
+
+  a {
+    &:hover::after {
+      content: "";
+      display: block;
+      height: 3px;
+      background: rgb(182, 0, 106);
+    }
+  }
+
   #sony {
     height: 20px;
   }
