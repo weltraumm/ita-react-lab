@@ -1,12 +1,23 @@
+// watch: native intellisense and file-peek for aliases from jsconfig.json and with none-js files doesn't work: https://github.com/microsoft/TypeScript/issues/29334
+//import imgSmall from "images/testSmall.png"; // start-path is 'images' because we have an alias 'images' in webpack.common.js
+//import imgCamera from "images/camera.svg";
+//import style from "./styles/main.module.css";
+
+// import React from "react";
+import { Component, StrictMode } from "react";
+import someTypeScript from "./someTypeScript";
+
 import "./styles/main.css";
 import "./styles/main.scss";
-// watch: native intellisense and file-peek for aliases from jsconfig.json and with none-js files doesn't work: https://github.com/microsoft/TypeScript/issues/29334
-import imgSmall from "images/testSmall.png"; // start-path is 'images' because we have an alias 'images' in webpack.common.js
-import imgCamera from "images/camera.svg";
-import { Component, StrictMode } from "react";
+
 import ReactDom from "react-dom";
-import style from "./styles/main.module.css";
-import someTypeScript from "./someTypeScript";
+// import { BrowserRouter, Route } from "react-router-dom";
+// import { Switch } from "react-router";
+
+import { Header } from "./components/header/Header";
+// import { HomePage } from "./components/pages/Home";
+// import { ProductsPage } from "./components/pages/Products";
+// import { AboutPage } from "./components/pages/About";
 
 interface AppProps {
   nothing: boolean;
@@ -33,23 +44,43 @@ class AppContainer extends Component<AppProps, AppState> {
   render() {
     return (
       <StrictMode>
-        <div className="test-block">
-          <h2 className={style.mainTitle}>{this.state.title}</h2>
-        </div>
-        <div className={["test-block", style.background].join(" ")}>
-          <h2>Test-block for url-loader</h2>
-          <img src={imgSmall} alt="smallImage" />
-        </div>
-        {/*  or it can be
-          <img src='/src/images/testSmall.png' alt="smallImage"></img>
-        */}
-        <div className={["test-block", style.svgBackground].join(" ")}>
-          <h2>Test-block for svg-url-loader</h2>
-          <img src={imgCamera} alt="small_SVG_Image" />
-        </div>
+        {/* <BrowserRouter> */}
+        <Header />
+        {/* <Route path="/">
+            <HomePage />
+          </Route>
+          <Route path="/products">
+            <ProductsPage />
+          </Route>
+          <Route path="/about">
+            <AboutPage />
+          </Route> */}
+        {/* <Switch>
+            <Route component={HomePage} path="/" exact />
+            <Route component={ProductsPage} path="/products" />
+            <Route component={AboutPage} path="/about" />
+          </Switch> */}
+        {/* </BrowserRouter> */}
       </StrictMode>
     );
   }
 }
 
 ReactDom.render(<AppContainer nothing={false} />, document.getElementById("app"));
+
+// const AppComponent: React.FC = () => {
+//   return (
+//     <StrictMode>
+//       <BrowserRouter>
+//         <Header />
+//         <Switch>
+//           <Route component={HomePage} path="/" exact />
+//           <Route component={ProductsPage} path="/products" />
+//           <Route component={AboutPage} path="/about" />
+//         </Switch>
+//       </BrowserRouter>
+//     </StrictMode>
+//   );
+// }
+
+// ReactDom.render(<AppComponent nothing={false} />, document.getElementById("app"));
