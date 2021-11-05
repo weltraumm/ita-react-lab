@@ -11,23 +11,23 @@ export const Footer: React.FC = () => {
     <footer>
       <span>Incredible convenient</span>
       <div className="companies-logo">
-        <a href="https://www.sony.com/">
+        <a href="https://www.sony.com/" target="_blank">
           <img id="sony" src={sony} alt="sony-logo" />
         </a>
 
-        <a href="https://www.nintendo.com/">
+        <a href="https://www.nintendo.com/" target="_blank">
           <img id="nintendo" src={nintendo} alt="nintendo-logo" />
         </a>
 
-        <a href="https://www.epicgames.com/">
+        <a href="https://www.epicgames.com/" target="_blank">
           <img id="epicgames" src={epicgames} alt="epic-games-logo" />
         </a>
 
-        <a href="https://www.ea.com/">
+        <a href="https://www.ea.com/" target="_blank">
           <img id="ea" src={ea} alt="ea-logo" />
         </a>
 
-        <a href="https://www.activision.com/">
+        <a href="https://www.activision.com/" target="_blank">
           <img id="activision" src={activision} alt="activision-logo" />
         </a>
       </div>
