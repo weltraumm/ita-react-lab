@@ -3,7 +3,6 @@ import { NavLink } from "react-router-dom";
 export const Navbar: React.FC = () => {
   const navArr: Array<string> = ["Home", "Products", "About"];
 
-  navArr.forEach((a) => console.log(`"/${a.toLowerCase()}"`));
   return (
     <nav>
       <ul>
