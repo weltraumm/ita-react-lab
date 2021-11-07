@@ -1,23 +1,22 @@
 import { NavLink } from "react-router-dom";
 
-export const Navbar: React.FC = () => (
-  <nav>
-    <ul>
-      <li>
-        <NavLink to="/home" activeClassName="selected">
-          Home
-        </NavLink>
-      </li>
-      <li>
-        <NavLink to="/products" activeClassName="selected">
-          Products
-        </NavLink>
-      </li>
-      <li>
-        <NavLink to="/about" activeClassName="selected">
-          About
-        </NavLink>
-      </li>
-    </ul>
-  </nav>
-);
+export const Navbar: React.FC = () => {
+  const navArr: Array<string> = ["Home", "Products", "About"];
+
+  navArr.forEach((a) => console.log(`"/${a.toLowerCase()}"`));
+  return (
+    <nav>
+      <ul>
+        {navArr.map((navItem) => {
+          return (
+            <li>
+              <NavLink to={`/${navItem.toLowerCase()}`} activeClassName="selected">
+                {navItem}
+              </NavLink>
+            </li>
+          );
+        })}
+      </ul>
+    </nav>
+  );
+};

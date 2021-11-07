@@ -1,33 +1,45 @@
 import "./footer.scss";
-import sony from "../../assets/images/sony.png";
-import nintendo from "../../assets/images/nintendo.svg";
-import epicgames from "../../assets/images/epicgames.png";
-import ea from "../../assets/images/ea.svg";
-import activision from "../../assets/images/activision.svg";
+import sonyPic from "../../assets/images/sony.png";
+import nintendoPic from "../../assets/images/nintendo.svg";
+import epicgamesPic from "../../assets/images/epicgames.png";
+import eaPic from "../../assets/images/ea.svg";
+import activisionPic from "../../assets/images/activision.svg";
 
-export const Footer: React.FC = () => (
-  <footer>
-    <span>Incredible convenient</span>
-    <div className="companies-logo">
-      <a href="https://www.sony.com/" target="_blank">
-        <img id="sony" src={sony} alt="sony-logo" />
-      </a>
+class CompanyLink {
+  id: string;
+  href: string;
+  pic: string;
+  alt: string;
 
-      <a href="https://www.nintendo.com/" target="_blank">
-        <img id="nintendo" src={nintendo} alt="nintendo-logo" />
-      </a>
+  constructor(company: string, pic: string) {
+    this.id = company;
+    this.href = `https://www.${company}.com/`;
+    this.pic = pic;
+    this.alt = company;
+  }
+}
 
-      <a href="https://www.epicgames.com/" target="_blank">
-        <img id="epicgames" src={epicgames} alt="epic-games-logo" />
-      </a>
+export const Footer: React.FC = () => {
+  const sony = new CompanyLink("sony", sonyPic);
+  const nintendo = new CompanyLink("nintendo", nintendoPic);
+  const epicgames = new CompanyLink("epicgames", epicgamesPic);
+  const ea = new CompanyLink("ea", eaPic);
+  const activision = new CompanyLink("activision", activisionPic);
 
-      <a href="https://www.ea.com/" target="_blank">
-        <img id="ea" src={ea} alt="ea-logo" />
-      </a>
+  const companies: Array<CompanyLink> = [sony, nintendo, epicgames, ea, activision];
 
-      <a href="https://www.activision.com/" target="_blank">
-        <img id="activision" src={activision} alt="activision-logo" />
-      </a>
-    </div>
-  </footer>
-);
+  return (
+    <footer>
+      <span>Incredible convenient</span>
+      <div className="companies-logo">
+        {companies.map((company) => {
+          return (
+            <a href={company.href} target="_blank">
+              <img id={company.id} src={company.pic} alt={company.alt} />
+            </a>
+          );
+        })}
+      </div>
+    </footer>
+  );
+};
