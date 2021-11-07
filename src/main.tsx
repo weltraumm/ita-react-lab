@@ -13,6 +13,12 @@ import { HomePage } from "./components/pages/home/home";
 import { ProductsPage } from "./components/pages/products/products";
 import { AboutPage } from "./components/pages/about/about";
 
+enum ROUTE {
+  HOME = "/home",
+  PRODUCTS = "/products",
+  ABOUT = "/about",
+}
+
 interface AppProps {
   nothing: boolean;
 }
@@ -40,9 +46,9 @@ class AppContainer extends Component<AppProps, AppState> {
         <BrowserRouter>
           <Header />
           <Switch>
-            <Route component={HomePage} path="/home" />
-            <Route component={ProductsPage} path="/products" />
-            <Route component={AboutPage} path="/about" />
+            <Route component={HomePage} path={ROUTE.HOME} />
+            <Route component={ProductsPage} path={ROUTE.PRODUCTS} />
+            <Route component={AboutPage} path={ROUTE.ABOUT} />
             <Route strict path="/:id" component={HomePage} />
           </Switch>
         </BrowserRouter>
