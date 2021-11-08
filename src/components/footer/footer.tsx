@@ -5,41 +5,31 @@ import epicgamesPic from "../../assets/images/epicgames.png";
 import eaPic from "../../assets/images/ea.svg";
 import activisionPic from "../../assets/images/activision.svg";
 
-class CompanyLink {
+interface ICompany {
   id: string;
   href: string;
   pic: string;
-  alt: string;
-
-  constructor(company: string, pic: string) {
-    this.id = company;
-    this.href = `https://www.${company}.com/`;
-    this.pic = pic;
-    this.alt = company;
-  }
 }
 
-export const Footer: React.FC = () => {
-  const sony = new CompanyLink("sony", sonyPic);
-  const nintendo = new CompanyLink("nintendo", nintendoPic);
-  const epicgames = new CompanyLink("epicgames", epicgamesPic);
-  const ea = new CompanyLink("ea", eaPic);
-  const activision = new CompanyLink("activision", activisionPic);
+const companies: Array<ICompany> = [
+  { id: "sony", href: "https://www.sony.com", pic: sonyPic },
+  { id: "nintendo", href: "https://www.nintendo.com", pic: nintendoPic },
+  { id: "epicgames", href: "https://www.epicgames.com", pic: epicgamesPic },
+  { id: "ea", href: "https://www.ea.com", pic: eaPic },
+  { id: "activision", href: "https://www.activision.com", pic: activisionPic },
+];
 
-  const companies: Array<CompanyLink> = [sony, nintendo, epicgames, ea, activision];
-
-  return (
-    <footer>
-      <span>Incredible convenient</span>
-      <div className="companies-logo">
-        {companies.map((company) => {
-          return (
-            <a href={company.href} target="_blank">
-              <img id={company.id} src={company.pic} alt={company.alt} />
-            </a>
-          );
-        })}
-      </div>
-    </footer>
-  );
-};
+export const Footer: React.FC = () => (
+  <footer>
+    <span>Incredible convenient</span>
+    <div className="companies-logo">
+      {companies.map((company) => {
+        return (
+          <a href={company.href} target="_blank">
+            <img id={company.id} src={company.pic} alt={company.id} />
+          </a>
+        );
+      })}
+    </div>
+  </footer>
+);
