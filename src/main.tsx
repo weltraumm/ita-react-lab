@@ -12,12 +12,7 @@ import { Footer } from "./components/footer/footer";
 import { HomePage } from "./components/pages/home/home";
 import { ProductsPage } from "./components/pages/products/products";
 import { AboutPage } from "./components/pages/about/about";
-
-enum ROUTE {
-  HOME = "/home",
-  PRODUCTS = "/products",
-  ABOUT = "/about",
-}
+import { ROUTE } from "./route";
 
 interface AppProps {
   nothing: boolean;
