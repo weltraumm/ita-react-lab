@@ -1,0 +1,49 @@
+footer {
+  color: white;
+  background-color: #1a1a1a;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 220px;
+
+  span {
+    display: inline-block;
+    font-style: italic;
+    font-size: 17px;
+    margin-left: 13%;
+    margin-right: 10%;
+  }
+
+  .companies-logo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 40%;
+    margin-right: 7%;
+  }
+
+  a {
+    &:hover::after {
+      content: "";
+      display: block;
+      height: 3px;
+      background: rgb(182, 0, 106);
+    }
+  }
+
+  #sony {
+    height: 20px;
+  }
+  #nintendo {
+    height: 110px;
+  }
+  #epicgames {
+    height: 50px;
+  }
+  #ea {
+    height: 30px;
+  }
+  #activision {
+    height: 27px;
+  }
+}

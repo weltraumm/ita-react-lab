@@ -1,12 +1,18 @@
+import { Component, StrictMode } from "react";
+import someTypeScript from "./someTypeScript";
+
 import "./styles/main.css";
 import "./styles/main.scss";
-// watch: native intellisense and file-peek for aliases from jsconfig.json and with none-js files doesn't work: https://github.com/microsoft/TypeScript/issues/29334
-import imgSmall from "images/testSmall.png"; // start-path is 'images' because we have an alias 'images' in webpack.common.js
-import imgCamera from "images/camera.svg";
-import { Component, StrictMode } from "react";
+
 import ReactDom from "react-dom";
-import style from "./styles/main.module.css";
-import someTypeScript from "./someTypeScript";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+
+import { Header } from "./components/header/header";
+import { Footer } from "./components/footer/footer";
+import { HomePage } from "./components/pages/home/home";
+import { ProductsPage } from "./components/pages/products/products";
+import { AboutPage } from "./components/pages/about/about";
+import { ROUTE } from "./route";
 
 interface AppProps {
   nothing: boolean;
@@ -23,7 +29,6 @@ class AppContainer extends Component<AppProps, AppState> {
     this.state = {
       title: someTypeScript("Test-block for css-modules"),
     };
-    // test class-dead-code
     const goExlcude = true;
     if (!goExlcude) {
       console.warn("class-dead-code doesn't work");
@@ -33,20 +38,16 @@ class AppContainer extends Component<AppProps, AppState> {
   render() {
     return (
       <StrictMode>
-        <div className="test-block">
-          <h2 className={style.mainTitle}>{this.state.title}</h2>
-        </div>
-        <div className={["test-block", style.background].join(" ")}>
-          <h2>Test-block for url-loader</h2>
-          <img src={imgSmall} alt="smallImage" />
-        </div>
-        {/*  or it can be
-          <img src='/src/images/testSmall.png' alt="smallImage"></img>
-        */}
-        <div className={["test-block", style.svgBackground].join(" ")}>
-          <h2>Test-block for svg-url-loader</h2>
-          <img src={imgCamera} alt="small_SVG_Image" />
-        </div>
+        <BrowserRouter>
+          <Header />
+          <Switch>
+            <Route component={HomePage} path={ROUTE.HOME} />
+            <Route component={ProductsPage} path={ROUTE.PRODUCTS} />
+            <Route component={AboutPage} path={ROUTE.ABOUT} />
+            <Route strict path="/:id" component={HomePage} />
+          </Switch>
+        </BrowserRouter>
+        <Footer />
       </StrictMode>
     );
   }
