@@ -1,51 +1,52 @@
+$headerHeight: 80px;
+
 header {
   color: white;
-  background-color: #1a1a1a;
+  background-color: #121212;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 100px;
+  height: $headerHeight;
 
   .title {
     font-weight: bolder;
     font-size: xx-large;
-    margin-left: 13%;
-    margin-right: 10%;
+    margin-left: 10%;
+    margin-right: 3%;
   }
+
   nav {
     font-size: smaller;
-    height: 100%;
-    margin-right: 10%;
-    width: 35%;
+    height: inherit;
+    margin-right: 3%;
 
     ul {
+      margin: 0;
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      height: inherit;
 
       li {
-        height: 100%;
+        vertical-align: middle;
+
         a {
           display: inline-block;
-          height: 100%;
           text-decoration: none;
           color: white;
-          padding: 20px;
-          &:hover::after {
-            content: "";
-            display: block;
-            height: 3px;
-            background: rgb(182, 0, 106);
+          padding: 10px;
+          box-sizing: border-box;
+          height: $headerHeight;
+          line-height: 60px;
+
+          &:hover {
+            transition: 250ms;
+            background-color: #272727;
+            border-bottom: 7px solid #9932cb;
           }
         }
 
         .selected {
-          &::after {
-            content: "";
-            display: block;
-            height: 3px;
-            background: rgb(182, 0, 106);
-          }
+          border-bottom: 7px solid #9932cb;
         }
       }
     }

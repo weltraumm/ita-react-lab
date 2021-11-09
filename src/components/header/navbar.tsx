@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 
-const navArr: Array<string> = ["Home", "Products", "About"];
+const navArr: Array<string> = ["Home", "Products", "About", "Sign In", "Sign Up"];
 
 export const Navbar: React.FC = () => (
   <nav>
