@@ -1,11 +1,11 @@
-import { Component, StrictMode } from "react";
+import { Component } from "react";
 import someTypeScript from "./someTypeScript";
 
 import "./styles/main.css";
 import "./styles/main.scss";
 
 import ReactDom from "react-dom";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
 
 import { Header } from "./components/header/header";
 import { Footer } from "./components/footer/footer";
@@ -37,18 +37,16 @@ class AppContainer extends Component<AppProps, AppState> {
 
   render() {
     return (
-      <StrictMode>
-        <BrowserRouter>
-          <Header />
-          <Switch>
-            <Route component={HomePage} path={ROUTE.HOME} />
-            <Route component={ProductsPage} path={ROUTE.PRODUCTS} />
-            <Route component={AboutPage} path={ROUTE.ABOUT} />
-            <Route strict path="/:id" component={HomePage} />
-          </Switch>
-        </BrowserRouter>
+      <BrowserRouter>
+        <Header />
+        <Routes>
+          <Route path={ROUTE.HOME} element={<HomePage />} />
+          <Route path={ROUTE.PRODUCTS} element={<ProductsPage />} />
+          <Route path={ROUTE.ABOUT} element={<AboutPage />} />
+          <Route path="*" element={<HomePage />} />
+        </Routes>
         <Footer />
-      </StrictMode>
+      </BrowserRouter>
     );
   }
 }
