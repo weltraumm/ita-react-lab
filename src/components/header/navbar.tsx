@@ -8,9 +8,7 @@ export const Navbar: React.FC = () => (
       {navArr.map((navItem) => {
         return (
           <li>
-            <NavLink to={`/${navItem.toLowerCase()}`} activeClassName="selected">
-              {navItem}
-            </NavLink>
+            <NavLink to={`/${navItem.toLowerCase()}`}>{navItem}</NavLink>
           </li>
         );
       })}

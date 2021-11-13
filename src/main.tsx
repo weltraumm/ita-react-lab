@@ -5,7 +5,7 @@ import "./styles/main.css";
 import "./styles/main.scss";
 
 import ReactDom from "react-dom";
-import { Routes, Route, BrowserRouter } from "react-router-dom";
+import { Routes, Route, BrowserRouter, Navigate } from "react-router-dom";
 
 import { Header } from "./components/header/header";
 import { Footer } from "./components/footer/footer";
@@ -19,6 +19,7 @@ interface AppProps {
 }
 interface AppState {
   title: string;
+  // hasError: boolean;
 }
 
 class AppContainer extends Component<AppProps, AppState> {
@@ -28,6 +29,7 @@ class AppContainer extends Component<AppProps, AppState> {
     super(props);
     this.state = {
       title: someTypeScript("Test-block for css-modules"),
+      // hasError: false,
     };
     const goExlcude = true;
     if (!goExlcude) {
@@ -35,15 +37,20 @@ class AppContainer extends Component<AppProps, AppState> {
     }
   }
 
+  // componentDidCatch() {
+  //   this.setState({ hasError: true });
+  // }
+
   render() {
     return (
       <BrowserRouter>
         <Header />
         <Routes>
           <Route path={ROUTE.HOME} element={<HomePage />} />
+          <Route path="/" element={<Navigate to={ROUTE.HOME} />} />
           <Route path={ROUTE.PRODUCTS} element={<ProductsPage />} />
           <Route path={ROUTE.ABOUT} element={<AboutPage />} />
-          <Route path="*" element={<HomePage />} />
+          <Route path="*" element={<Navigate to={ROUTE.HOME} />} />
         </Routes>
         <Footer />
       </BrowserRouter>
