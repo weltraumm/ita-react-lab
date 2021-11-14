@@ -1,5 +1,4 @@
 import { Component } from "react";
-import someTypeScript from "./someTypeScript";
 
 import "./styles/main.css";
 import "./styles/main.scss";
@@ -18,8 +17,7 @@ interface AppProps {
   nothing: boolean;
 }
 interface AppState {
-  title: string;
-  // hasError: boolean;
+  hasError: boolean;
 }
 
 class AppContainer extends Component<AppProps, AppState> {
@@ -28,20 +26,20 @@ class AppContainer extends Component<AppProps, AppState> {
   constructor(props: AppProps) {
     super(props);
     this.state = {
-      title: someTypeScript("Test-block for css-modules"),
-      // hasError: false,
+      hasError: false,
     };
-    const goExlcude = true;
-    if (!goExlcude) {
-      console.warn("class-dead-code doesn't work");
-    }
   }
 
-  // componentDidCatch() {
-  //   this.setState({ hasError: true });
-  // }
+  componentDidCatch() {
+    this.setState({ hasError: true });
+  }
 
   render() {
+    if (this.state.hasError) {
+      console.error("Error happend on UI");
+      alert("Error!");
+      window.location.href += "/home";
+    }
     return (
       <BrowserRouter>
         <Header />
