@@ -1,14 +1,25 @@
 import { NavLink } from "react-router-dom";
 
-const navArr: Array<string> = ["Home", "Products", "About", "Sign In", "Sign Up"];
+interface INavItem {
+  name: string;
+  url: string;
+}
+
+const navItems: Array<INavItem> = [
+  { name: "Home", url: "/home" },
+  { name: "Products", url: "/products" },
+  { name: "About", url: "/about" },
+  { name: "Sign In", url: "/sign-in" },
+  { name: "Sign Up", url: "/sign-up" },
+];
 
 export const Navbar: React.FC = () => (
   <nav>
     <ul>
-      {navArr.map((navItem) => {
+      {navItems.map((navItem) => {
         return (
           <li>
-            <NavLink to={`/${navItem.toLowerCase()}`}>{navItem}</NavLink>
+            <NavLink to={navItem.url}>{navItem.name}</NavLink>
           </li>
         );
       })}
