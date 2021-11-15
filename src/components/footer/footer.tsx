@@ -1,6 +1,6 @@
 import "./footer.scss";
 import sonyPic from "../../assets/images/sony.png";
-import nintendoPic from "../../assets/images/nintendo.svg";
+import nintendoPic from "../../assets/images/nintendo.png";
 import epicgamesPic from "../../assets/images/epicgames.png";
 import eaPic from "../../assets/images/ea.svg";
 import activisionPic from "../../assets/images/activision.svg";

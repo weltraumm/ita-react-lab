@@ -1,11 +1,10 @@
-import { Component, StrictMode } from "react";
-import someTypeScript from "./someTypeScript";
+import { Component } from "react";
 
 import "./styles/main.css";
 import "./styles/main.scss";
 
 import ReactDom from "react-dom";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { Routes, Route, BrowserRouter, Navigate } from "react-router-dom";
 
 import { Header } from "./components/header/header";
 import { Footer } from "./components/footer/footer";
@@ -18,7 +17,7 @@ interface AppProps {
   nothing: boolean;
 }
 interface AppState {
-  title: string;
+  hasError: boolean;
 }
 
 class AppContainer extends Component<AppProps, AppState> {
@@ -27,28 +26,32 @@ class AppContainer extends Component<AppProps, AppState> {
   constructor(props: AppProps) {
     super(props);
     this.state = {
-      title: someTypeScript("Test-block for css-modules"),
+      hasError: false,
     };
-    const goExlcude = true;
-    if (!goExlcude) {
-      console.warn("class-dead-code doesn't work");
-    }
+  }
+
+  componentDidCatch() {
+    this.setState({ hasError: true });
   }
 
   render() {
+    if (this.state.hasError) {
+      console.error("Error happend on UI");
+      alert("Error!");
+      window.location.href += "/home";
+    }
     return (
-      <StrictMode>
-        <BrowserRouter>
-          <Header />
-          <Switch>
-            <Route component={HomePage} path={ROUTE.HOME} />
-            <Route component={ProductsPage} path={ROUTE.PRODUCTS} />
-            <Route component={AboutPage} path={ROUTE.ABOUT} />
-            <Route strict path="/:id" component={HomePage} />
-          </Switch>
-        </BrowserRouter>
+      <BrowserRouter>
+        <Header />
+        <Routes>
+          <Route path={ROUTE.HOME} element={<HomePage />} />
+          <Route path="/" element={<Navigate to={ROUTE.HOME} />} />
+          <Route path={ROUTE.PRODUCTS} element={<ProductsPage />} />
+          <Route path={ROUTE.ABOUT} element={<AboutPage />} />
+          <Route path="*" element={<Navigate to={ROUTE.HOME} />} />
+        </Routes>
         <Footer />
-      </StrictMode>
+      </BrowserRouter>
     );
   }
 }
