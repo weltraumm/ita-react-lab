@@ -18,7 +18,7 @@ export const Navbar: React.FC = () => (
     <ul>
       {navItems.map((navItem) => {
         return (
-          <li>
+          <li key={navItem.name}>
             <NavLink to={navItem.url}>{navItem.name}</NavLink>
           </li>
         );
