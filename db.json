@@ -1,0 +1,28 @@
+{
+  "games": [
+    {
+      "title": "Overwatch",
+      "image": "https://s1.gaming-cdn.com/images/products/2208/orig/game-battle-net-overwatch-cover.jpg",
+      "price": "23.99",
+      "rating": "5",
+      "description": "Overwatch is a Massively Multiplayer First Person Shooter PC game developed and released by Blizzard Entertainment in 2016 for Windows, PlayStation 4 and Xbox One, and in 2019 for Nintendo Switch.",
+      "age": "12"
+    },
+    {
+      "title": "Minecraft",
+      "image": "https://hot-game.info/uploads/media/game/0001/28/thumb_27274_game_poster.jpeg",
+      "price": "25.99",
+      "rating": "5",
+      "description": "Minecraft is an indie sandbox computer game created by Swedish programmer Markus Persson and published by his company Mojang AB.",
+      "age": "3"
+    },
+    {
+      "title": "Terraria",
+      "image": "https://s3.gaming-cdn.com/images/products/932/orig/game-steam-terraria-cover.jpg",
+      "price": "4.99",
+      "rating": "5",
+      "description": "Terraria is a sandbox adventure computer game developed by the American studio Re-Logic. It was released in 2011 for Microsoft Windows computers and distributed through the digital distribution system Steam.",
+      "age": "6"
+    }
+  ]
+}
