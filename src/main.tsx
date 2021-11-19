@@ -1,6 +1,5 @@
 import { Component } from "react";
 
-import "./styles/main.css";
 import "./styles/main.scss";
 
 import ReactDom from "react-dom";
@@ -43,13 +42,15 @@ class AppContainer extends Component<AppProps, AppState> {
     return (
       <BrowserRouter>
         <Header />
-        <Routes>
-          <Route path={ROUTE.HOME} element={<HomePage />} />
-          <Route path="/" element={<Navigate to={ROUTE.HOME} />} />
-          <Route path={ROUTE.PRODUCTS} element={<ProductsPage />} />
-          <Route path={ROUTE.ABOUT} element={<AboutPage />} />
-          <Route path="*" element={<Navigate to={ROUTE.HOME} />} />
-        </Routes>
+        <div className="background">
+          <Routes>
+            <Route path={ROUTE.HOME} element={<HomePage />} />
+            <Route path="/" element={<Navigate to={ROUTE.HOME} />} />
+            <Route path={ROUTE.PRODUCTS} element={<ProductsPage />} />
+            <Route path={ROUTE.ABOUT} element={<AboutPage />} />
+            <Route path="*" element={<Navigate to={ROUTE.HOME} />} />
+          </Routes>
+        </div>
         <Footer />
       </BrowserRouter>
     );
