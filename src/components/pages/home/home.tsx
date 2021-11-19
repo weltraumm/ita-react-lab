@@ -1,11 +1,7 @@
-import "./home.scss";
+import { SearchBar } from "./searchBar";
 import { useEffect, useState } from "react";
-// import { SearchBar } from "./searchBar/searchBar";
-import { Card } from "./gameCard";
-// import { Categories } from "./categories/categories";
-// import { NewGames } from "./newGames/newGames";
 import axios from "axios";
-// import { response } from "express";
+import "./home.scss";
 
 interface IGames {
   title: string;
@@ -24,20 +20,9 @@ export const HomePage: React.FC = () => {
     getGames();
   }, []);
 
-  const [value, setValue] = useState("");
-
-  const filteredGames = games.filter((game) => {
-    return game.title.toLowerCase().includes(value.toLowerCase());
-  });
-
   return (
-    <div className="background">
-      <input type="text" placeholder="Search" onChange={(event) => setValue(event.target.value)} />
-      <div className="games">
-        {filteredGames.map((game) => {
-          return <p>{game.title}</p>;
-        })}
-      </div>
+    <div className="section">
+      <SearchBar games={games} />
     </div>
   );
 };
