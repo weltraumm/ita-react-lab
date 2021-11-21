@@ -3,12 +3,12 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import "./home.scss";
 
-interface IGames {
+interface IGame {
   title: string;
 }
 
 export const HomePage: React.FC = () => {
-  const [games, setGames] = useState<IGames[]>([]);
+  const [games, setGames] = useState<IGame[]>([]);
 
   const getGames = () => {
     axios.get("http://localhost:3000/games").then((response) => {

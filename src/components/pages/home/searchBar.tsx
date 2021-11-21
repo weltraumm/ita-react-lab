@@ -1,19 +1,25 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import img from "../../../assets/images/search.svg";
 import "./searchBar.scss";
 
+interface IGame {
+  title: string;
+}
 interface Props {
-  games: Array<{
-    title: string;
-  }>;
+  games: IGame[];
 }
 
 export const SearchBar: React.FC<Props> = (props) => {
   const [value, setValue] = useState("");
+  const [filteredGames, setFilteredGames] = useState<IGame[]>([]);
 
-  const filteredGames = props.games.filter((game) => {
-    return game.title.toLowerCase().includes(value.toLowerCase());
-  });
+  useEffect(() => {
+    setFilteredGames([]);
+    const delayDebounceFn = setTimeout(() => {
+      setFilteredGames(props.games.filter((game) => game.title.toLowerCase().includes(value.toLowerCase())));
+    }, 300);
+    return () => clearTimeout(delayDebounceFn);
+  }, [value]);
 
   const [isOpen, setIsOpen] = useState(true);
 
