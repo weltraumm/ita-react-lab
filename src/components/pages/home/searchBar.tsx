@@ -1,22 +1,22 @@
 import { useState, useEffect } from "react";
 import img from "../../../assets/images/search.svg";
 import "./searchBar.scss";
+import axios from "axios";
 
 interface IGame {
   title: string;
 }
-interface Props {
-  games: IGame[];
-}
 
-export const SearchBar: React.FC<Props> = (props) => {
+export const SearchBar: React.FC = () => {
   const [value, setValue] = useState("");
   const [filteredGames, setFilteredGames] = useState<IGame[]>([]);
 
   useEffect(() => {
     setFilteredGames([]);
     const delayDebounceFn = setTimeout(() => {
-      setFilteredGames(props.games.filter((game) => game.title.toLowerCase().includes(value.toLowerCase())));
+      axios.get(`http://localhost:3000/games?title_like=${value}`).then((response) => {
+        setFilteredGames(response.data);
+      });
     }, 300);
     return () => clearTimeout(delayDebounceFn);
   }, [value]);
