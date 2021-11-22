@@ -30,10 +30,34 @@
   transition: 300ms;
 }
 
-.search_img {
+.magnifier_img {
   position: absolute;
   left: 14px;
   top: 14px;
+}
+
+.loader_img {
+  position: absolute;
+  left: 14px;
+  top: 14px;
+  width: 13px;
+  height: 13px;
+  border-left: 2px solid #84818c;
+  border-bottom: 2px solid #84818c;
+  border-right: 2px solid #84818c;
+  border-top: 2px solid transparent;
+  border-radius: 50%;
+  animation: loader_img 1s linear infinite;
+}
+
+@keyframes loader_img {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .search_input {
