@@ -7,8 +7,8 @@ interface INavItem {
 
 const navItems: Array<INavItem> = [
   { name: "PC", url: "/pc" },
-  { name: "Playstation 5", url: "/playstation-5" },
-  { name: "XBox One", url: "/xbox-one" },
+  { name: "Playstation 5", url: "/playstation" },
+  { name: "XBox One", url: "/xbox" },
 ];
 
 export const SubMenu: React.FC = () => (
@@ -16,7 +16,7 @@ export const SubMenu: React.FC = () => (
     {navItems.map((navItem) => {
       return (
         <li key={navItem.name} className="nav__submenu-item">
-          <NavLink to={navItem.url}>{navItem.name}</NavLink>
+          <NavLink to={"/products" + navItem.url}>{navItem.name}</NavLink>
         </li>
       );
     })}

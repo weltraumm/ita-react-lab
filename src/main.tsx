@@ -45,8 +45,8 @@ class AppContainer extends Component<AppProps, AppState> {
         <div className="background">
           <Routes>
             <Route path={ROUTE.HOME} element={<HomePage />} />
-            <Route path="/" element={<Navigate to={ROUTE.HOME} />} />
             <Route path={ROUTE.PRODUCTS} element={<ProductsPage />} />
+            <Route path={ROUTE.PRODUCTS + "/:category"} element={<ProductsPage />} />
             <Route path={ROUTE.ABOUT} element={<AboutPage />} />
             <Route path="*" element={<Navigate to={ROUTE.HOME} />} />
           </Routes>
