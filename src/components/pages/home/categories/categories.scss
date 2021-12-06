@@ -1,0 +1,33 @@
+.content {
+  display: flex;
+  justify-content: space-evenly;
+  .card {
+    display: flex;
+    background-color: rgb(18, 18, 18);
+    width: 23%;
+    border: #fff 2px solid;
+    border-bottom: #fff 7px solid;
+    border-radius: 10px;
+    text-decoration: none;
+    &:hover {
+      transition: 180ms;
+      border: #9932cb 2px solid;
+      border-bottom: #9932cb 7px solid;
+    }
+    .card_content {
+      display: flex;
+      flex-direction: column;
+      margin: 15% auto;
+      .card_pic {
+        width: 50px;
+        margin: auto;
+      }
+      .card_title {
+        color: #fff;
+        text-align: center;
+        margin: 0;
+        padding: 10px 0 0 0;
+      }
+    }
+  }
+}
