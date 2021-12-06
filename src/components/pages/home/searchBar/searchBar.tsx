@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import magnifier from "../../../assets/images/magnifier.svg";
+import magnifier from "../../../../assets/images/magnifier.svg";
 import "./searchBar.scss";
 import axios from "axios";
 
