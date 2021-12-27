@@ -1,4 +1,6 @@
 $headerHeight: 80px;
+$submenuHeight: 60px;
+$submenuWidth: 150px;
 
 header {
   color: white;
@@ -14,20 +16,23 @@ header {
     margin-left: 10%;
     margin-right: 3%;
   }
-
-  nav {
+  .nav__submenu {
+    display: none;
+  }
+  .nav {
     font-size: smaller;
     height: inherit;
     margin-right: 3%;
 
-    ul {
+    .nav__menu {
       margin: 0;
       display: flex;
       align-items: center;
       height: inherit;
 
-      li {
+      .nav__menu-item {
         vertical-align: middle;
+        position: relative;
 
         a {
           display: inline-block;
@@ -42,6 +47,23 @@ header {
             transition: 250ms;
             background-color: #272727;
             border-bottom: 7px solid #9932cb;
+          }
+        }
+        &:hover {
+          .nav__submenu {
+            display: block;
+            position: absolute;
+            background-color: #121212;
+            z-index: 1;
+            width: $submenuWidth;
+            .nav__submenu-item {
+              a {
+                width: $submenuWidth;
+                height: $submenuHeight;
+                line-height: 40px;
+                text-align: center;
+              }
+            }
           }
         }
 

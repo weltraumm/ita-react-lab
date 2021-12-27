@@ -25,7 +25,7 @@ export const Footer: React.FC = () => (
     <div className="companies-logo">
       {companies.map((company) => {
         return (
-          <a href={company.href} target="_blank">
+          <a href={company.href} target="_blank" key={company.id}>
             <img id={company.id} src={company.pic} alt={company.id} />
           </a>
         );

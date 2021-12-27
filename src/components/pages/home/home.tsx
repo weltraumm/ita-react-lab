@@ -1,11 +1,18 @@
-import "../pages.scss";
+import "./home.scss";
+import { SearchBar } from "./searchBar/searchBar";
+import { GraySection } from "./graySection/graySection";
+import { Categories } from "./categories/categories";
 
-export const HomePage: React.FC = () => (
-  <>
-    <h1>Home page</h1>
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium nemo accusantium voluptates. Ratione adipisci
-      esse nemo sit officia velit eveniet explicabo! Nulla quos pariatur omnis eum quia, ea adipisci ad!
-    </p>
-  </>
-);
+export const HomePage: React.FC = () => {
+  return (
+    <div className="section">
+      <SearchBar />
+      <GraySection title="Categories">
+        <Categories />
+      </GraySection>
+      <GraySection title="New games">
+        <></>
+      </GraySection>
+    </div>
+  );
+};

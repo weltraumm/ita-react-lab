@@ -1,4 +1,4 @@
-import "../pages.scss";
+// import "../pages.scss";
 
 export const AboutPage: React.FC = () => (
   <>

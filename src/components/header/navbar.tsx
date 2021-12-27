@@ -1,4 +1,5 @@
 import { NavLink } from "react-router-dom";
+import { SubMenu } from "./subMenu";
 
 interface INavItem {
   name: string;
@@ -14,12 +15,13 @@ const navItems: Array<INavItem> = [
 ];
 
 export const Navbar: React.FC = () => (
-  <nav>
-    <ul>
+  <nav className="nav">
+    <ul className="nav__menu">
       {navItems.map((navItem) => {
         return (
-          <li>
+          <li key={navItem.name} className="nav__menu-item">
             <NavLink to={navItem.url}>{navItem.name}</NavLink>
+            {navItem.name === "Products" && <SubMenu />}
           </li>
         );
       })}
